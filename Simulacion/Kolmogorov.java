@@ -31,7 +31,7 @@ public class Kolmogorov {
     static void kolmogorv( ArrayList<Double> serie, double[] fi, double[] Ui, int index, int n, double fn, double a, double d1) {
         if (index < n) {
             fi[index] = (index + 1) * fn;
-            Ui[index] = serie.get( index) - fi[index];
+            Ui[index] = Math.abs(serie.get( index) - fi[index]);
             d1 = Math.max(d1, Ui[index]); // Actualizar d1 si Ui[index] es mayor
             kolmogorv(serie, fi, Ui, index + 1, n, fn, a, d1);
         } else {
